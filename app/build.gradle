@@ -165,7 +165,13 @@ android {
             applicationId "net.cj.cjhv.gs.tving"
             manifestPlaceholders = [APP_NAME: "tving"]
         }
-
+        localLanguageTest {
+            dimension "default"
+            versionCode = 1000000
+            versionName = "1.0.0"
+            applicationId "com.lingong.demo"
+            manifestPlaceholders = [APP_NAME: "@string/app_name"]
+        }
 
     }
 
