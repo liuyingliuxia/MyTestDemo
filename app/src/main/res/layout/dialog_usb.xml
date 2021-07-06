@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flUsbbg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black40"
+    android:gravity="center"
+    tools:viewBindingIgnore="true"
+    android:orientation="vertical">
+
+<!--    <ImageView-->
+<!--        android:id="@+id/ivBg"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        />-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_360"
+        android:background="@drawable/bg_usb"
+        android:layout_gravity="center"
+        android:elevation="@dimen/dp_2">
+
+
+
+        <TextView
+            android:id="@+id/tvInsert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dp_74"
+            android:paddingTop="@dimen/dp_40"
+            android:text="@string/has_inserted"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/sp_27"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvUSBName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dp_40"
+            android:text="Untitled"
+            android:textColor="@color/yellow_ffad12"
+            android:textSize="@dimen/sp_27"
+            app:layout_constraintStart_toEndOf="@+id/tvInsert"
+            app:layout_constraintTop_toTopOf="@id/tvInsert" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dp_2"
+            android:paddingTop="@dimen/dp_40"
+
+            android:paddingEnd="@dimen/dp_74"
+            android:text="@string/mobile_device"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/sp_27"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvUSBName"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dp_24"
+            android:text="@string/choose_options"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUSBName" />
+
+        <Button
+            android:id="@+id/btnOpenUsb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@drawable/selector_btn_bg"
+            android:drawableStart="@mipmap/ic_usb"
+            android:paddingStart="@dimen/dp_130"
+            android:paddingEnd="@dimen/dp_130"
+            android:text="@string/open_usb"
+            android:textColor="@color/text_color_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvOptions" />
+
+
+        <Button
+            android:id="@+id/btnVideo"
+            android:layout_width="@dimen/dp_160"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/selector_btn_bg"
+            android:drawableStart="@mipmap/ic_video"
+            android:ellipsize="marquee"
+            android:gravity="center_vertical"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingStart="@dimen/dp_50"
+            android:singleLine="true"
+            android:text="@string/video"
+            android:textColor="@color/text_color_white"
+            app:layout_constraintEnd_toStartOf="@+id/btnMusic"
+            app:layout_constraintStart_toStartOf="@id/btnOpenUsb"
+            app:layout_constraintTop_toBottomOf="@id/btnOpenUsb" />
+
+
+        <Button
+            android:id="@+id/btnMusic"
+            android:layout_width="@dimen/dp_160"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+
+            android:background="@drawable/selector_btn_bg"
+            android:drawableStart="@mipmap/ic_music"
+            android:ellipsize="marquee"
+
+            android:gravity="center_vertical"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingStart="@dimen/dp_50"
+
+            android:singleLine="true"
+            android:text="@string/music"
+            android:textColor="@color/text_color_white"
+            app:layout_constraintEnd_toEndOf="@id/btnOpenUsb"
+            app:layout_constraintStart_toEndOf="@id/btnVideo"
+            app:layout_constraintTop_toBottomOf="@id/btnOpenUsb" />
+
+        <Button
+            android:id="@+id/btnPicture"
+            android:layout_width="@dimen/dp_160"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/selector_btn_bg"
+            android:drawableStart="@mipmap/ic_pic"
+            android:ellipsize="marquee"
+            android:gravity="center_vertical"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingStart="@dimen/dp_50"
+
+            android:singleLine="true"
+            android:text="@string/picture"
+            android:textColor="@color/text_color_white"
+
+            app:layout_constraintStart_toStartOf="@id/btnVideo"
+            app:layout_constraintTop_toBottomOf="@id/btnVideo" />
+
+        <Button
+            android:id="@+id/btnDocument"
+            android:layout_width="@dimen/dp_160"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/selector_btn_bg"
+            android:drawableStart="@mipmap/ic_txt"
+            android:ellipsize="marquee"
+
+            android:gravity="center_vertical"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingStart="@dimen/dp_50"
+            android:singleLine="true"
+            android:text="@string/video"
+            android:textColor="@color/text_color_white"
+            app:layout_constraintEnd_toEndOf="@id/btnMusic"
+            app:layout_constraintStart_toStartOf="@id/btnMusic"
+            app:layout_constraintTop_toBottomOf="@id/btnMusic" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

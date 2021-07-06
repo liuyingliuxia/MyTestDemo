@@ -1,4 +1,4 @@
-package com.lingong.mytest;
+package com.lingong.mytest.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.lingong.mytest.R;
 import com.lingong.mytest.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {

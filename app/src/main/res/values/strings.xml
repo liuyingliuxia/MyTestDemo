@@ -9,4 +9,15 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+    <string name="has_inserted"> Has inserted </string>
+    <string name="mobile_device">mobile device </string>
+    <string name="choose_options"> Please select the operation you want to perform</string>
+    <string name="open_usb"> open USB</string>
+    <string name="video">Video</string>
+    <string name="music"> Music</string>
+    <string name="picture">Picture</string>
+    <string name="document">document</string>
+
 </resources>
