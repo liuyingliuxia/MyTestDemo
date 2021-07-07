@@ -1,5 +1,6 @@
 package com.lingong.mytest.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -25,7 +26,6 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     public static final String TAG = "MainActivity";
     EditText editText;
@@ -37,26 +37,21 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.toolbar);
+        Intent intent = new Intent("com.jmgo.action.SHOW_TOU");
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-//        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        mUsbDialog = new UsbDialog(this);
-        if (!mUsbDialog.isShowing())
-            mUsbDialog.show();
 
-//        binding.fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-//        editText = findViewById(R.id.etTest);
-//        editText.requestFocus();
-//        editText.requestFocusFromTouch();
-//        sendVirtualKey(KeyEvent.KEYCODE_DPAD_CENTER);
+        binding.btnTest1.setOnClickListener(v->{
+            intent.putExtra("TouUrlNameConst" ,1);//1 主协议 ；2 副协议
+            startActivity(intent);
+        });
+
+
+        binding.btnTest2.setOnClickListener(v->{
+            intent.putExtra("TouUrlNameConst" ,2);//1 主协议 ；2 副协议
+            startActivity(intent);
+        });
+
     }
 
     private void sendVirtualKey(int keyCode) {
@@ -71,32 +66,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
 }
