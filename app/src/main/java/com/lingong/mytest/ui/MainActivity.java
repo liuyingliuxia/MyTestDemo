@@ -19,6 +19,9 @@ import androidx.navigation.ui.NavigationUI;
 import com.lingong.mytest.R;
 import com.lingong.mytest.databinding.ActivityMainBinding;
 import com.lingong.mytest.dialog.UsbDialog;
+import com.lingong.mytest.inter.OnSoftKeyBoardChangeListener;
+import com.lingong.mytest.inter.SoftKeyBoardListener;
+import com.lingong.mytest.utils.LogUtil;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,19 +40,41 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Intent intent = new Intent("com.jmgo.action.SHOW_TOU");
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        SoftKeyBoardListener.setListener(this, new OnSoftKeyBoardChangeListener() {
+                    @Override
+                    public void keyBoardShow() {
+                        LogUtil.d("keyBoardShow ... ");
+                    }
 
+                    @Override
+                    public void keyBoardHide() {
+                        LogUtil.d("keyBoardHide ... ");
+                    }
+                }
 
-        binding.btnTest1.setOnClickListener(v->{
-            intent.putExtra("TouUrlNameConst" ,1);//1 主协议 ；2 副协议
+        );
+        binding.btnTest1.setOnClickListener(v -> {
+
+            Intent intent = new Intent("com.jmgo.action.SHOW_TOU");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+
+//            Intent broadIntent = new Intent("com.jmgo.ota.firmware");
+//            broadIntent.putExtra( "firmware_version","1.0.66");
+//            sendBroadcast(broadIntent);
         });
 
+        binding.btnTest2.setText("JMGO");
+        binding.btnTest2.setOnClickListener(v -> {
 
-        binding.btnTest2.setOnClickListener(v->{
-            intent.putExtra("TouUrlNameConst" ,2);//1 主协议 ；2 副协议
+            Intent intent = new Intent();
+            intent.setClassName("com.jmgo.luna", "com.jmgo.luna.ui.JmgoFunActivity");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+//            Intent intent = new Intent("com.jmgo.action.SHOW_TOU");
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            intent.putExtra("TouUrlNameConst" ,2);//1 主协议 ；2 副协议
+//            startActivity(intent);
         });
 
     }
