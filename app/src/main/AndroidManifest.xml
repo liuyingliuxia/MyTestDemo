@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lingong.demo.overlay">
-    <overlay android:targetPackage="com.lingong.demo" android:priority="99"/>
+    <overlay android:targetPackage="com.lingong.demo" android:priority="9"/>
 </manifest>

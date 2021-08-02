@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Youtube</string>
+    <string name="app_name">デモ</string>
     <string name="button1">ボタン1 </string>
     <string name="button2">ボタン2 </string>
 </resources>
