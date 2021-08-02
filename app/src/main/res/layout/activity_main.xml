@@ -23,14 +23,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="TEXT 1" />
+            android:text="@string/button1" />
 
         <Button
             android:id="@+id/btnTest2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="TEXT 2" />
+            android:text="@string/button2" />
 
 
     </LinearLayout>

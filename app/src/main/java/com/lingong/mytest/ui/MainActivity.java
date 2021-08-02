@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 //            sendBroadcast(broadIntent);
         });
 
-        binding.btnTest2.setText("JMGO");
+//        binding.btnTest2.setText("JMGO");
         binding.btnTest2.setOnClickListener(v -> {
 
             Intent intent = new Intent();

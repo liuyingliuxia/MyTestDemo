@@ -20,4 +20,7 @@
     <string name="picture">Picture</string>
     <string name="document">document</string>
 
+    <string name="button1">Button1</string>
+    <string name="button2">Button2</string>
+
 </resources>
