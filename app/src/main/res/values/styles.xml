@@ -35,4 +35,20 @@
         <!--        <item name="android:windowIsFloating">false</item>-->
     </style>
 
+
+    <declare-styleable name="RingProgressBar">
+        <attr name="ringColor" format="color" />
+        <attr name="ringProgressColor" format="reference|color" />
+        <attr name="ringWidth" format="dimension" />
+        <attr name="textPrgColor" format="color" />
+        <attr name="textPrgSize" format="dimension" />
+        <attr name="max" format="integer" />
+        <attr name="textIsShow" format="boolean" />
+        <attr name="style">
+            <enum name="STROKE" value="0" />
+            <enum name="FILL" value="1" />
+        </attr>
+    </declare-styleable>
+
+
 </resources>

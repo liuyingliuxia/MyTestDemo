@@ -1,38 +1,42 @@
 package com.lingong.mytest.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.lingong.mytest.R;
 import com.lingong.mytest.databinding.ActivityMainBinding;
-import com.lingong.mytest.dialog.UsbDialog;
 import com.lingong.mytest.inter.OnSoftKeyBoardChangeListener;
 import com.lingong.mytest.inter.SoftKeyBoardListener;
 import com.lingong.mytest.utils.LogUtil;
 
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.EditText;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     public static final String TAG = "MainActivity";
-    EditText editText;
-    UsbDialog mUsbDialog;
+    private final static int MSG_CLEAN_START = 99;
+    private int currentProcess;
+    private Handler handler = new Handler(Looper.getMainLooper()) {
+
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MSG_CLEAN_START:
+                    if (!((Activity) binding.getRoot().getContext()).isFinishing()) {
+                        LogUtil.d("ringPb currentProcess = " + currentProcess);
+                        binding.ringPb.setProgress(currentProcess);
+                        binding.ringDemo.setProgress(currentProcess);
+                    }
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +80,38 @@ public class MainActivity extends AppCompatActivity {
 //            intent.putExtra("TouUrlNameConst" ,2);//1 主协议 ；2 副协议
 //            startActivity(intent);
         });
+//        binding.ringPb.setMax(500);
+//        binding.ringPb.setProgress(0);
+        startTesting();
+    }
+
+
+    /**
+     * 只有UI 效果
+     */
+    private void startTesting() {
+        Random random = new Random();
+
+        Thread thread = new Thread(() -> {
+            for (; ; ) {
+                try {
+                    Thread.sleep(600);
+                    if (currentProcess < 500) {
+                        currentProcess += random.nextInt(20);
+                        if (!((Activity) this).isFinishing()) {
+                            handler.sendEmptyMessage(MSG_CLEAN_START);
+                        }
+                    } else {
+                        break;
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        });
+        thread.start();
+
 
     }
 
