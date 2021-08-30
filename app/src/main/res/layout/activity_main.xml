@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/white"
     tools:context=".ui.MainActivity">
 
     <LinearLayout
@@ -18,7 +18,11 @@
             android:layout_width="@dimen/dp_200"
             android:layout_height="@dimen/dp_200"
             android:indeterminate="false"
-            app:ringWidth="@dimen/dp_10" />
+            app:max="500"
+            app:ringWidth="@dimen/dp_10"
+            app:shape="SEMI"
+            app:ringProgressColor="@color/progress"
+            android:visibility="visible"/>
 
         <com.lingong.mytest.widget.RingDemo
             android:id="@+id/ringDemo"
@@ -26,7 +30,18 @@
             android:layout_height="@dimen/dp_200"
             android:layout_marginStart="@dimen/dp_10"
             android:indeterminate="false"
-            app:ringWidth="@dimen/dp_10" />
+            app:ringWidth="@dimen/dp_10"
+            android:visibility="gone"/>
+
+        <com.yhd.semicircle.SemiCircleView
+            android:id="@+id/smcCv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/white"
+            android:visibility="gone"
+            app:se_deepColor="#FF7100" />
 
 
         <EditText

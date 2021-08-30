@@ -235,4 +235,5 @@ dependencies {
 
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    api 'com.github.yinhaide:HDSemicircle:0.0.1'
 }

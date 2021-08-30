@@ -10,6 +10,7 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.lingong.mytest.R;
 import com.lingong.mytest.databinding.ActivityMainBinding;
 import com.lingong.mytest.inter.OnSoftKeyBoardChangeListener;
 import com.lingong.mytest.inter.SoftKeyBoardListener;
@@ -30,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
                 case MSG_CLEAN_START:
                     if (!((Activity) binding.getRoot().getContext()).isFinishing()) {
                         LogUtil.d("ringPb currentProcess = " + currentProcess);
+                        binding.ringPb.setAlpha((float) currentProcess / 500.00f);
                         binding.ringPb.setProgress(currentProcess);
-                        binding.ringDemo.setProgress(currentProcess);
+//                        binding.ringDemo.setProgress(currentProcess);
                     }
                     break;
             }
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 //        binding.ringPb.setMax(500);
 //        binding.ringPb.setProgress(0);
         startTesting();
+//        binding.ringPb.setRingColor(getResources().getColor(R.color.blue0D81F3));
     }
 
 
@@ -97,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     Thread.sleep(600);
                     if (currentProcess < 500) {
-                        currentProcess += random.nextInt(20);
+                        currentProcess += random.nextInt(50);
                         if (!((Activity) this).isFinishing()) {
                             handler.sendEmptyMessage(MSG_CLEAN_START);
                         }

@@ -64,12 +64,24 @@ public class RingProgressBar extends View {
     //圆环进度条的样式
     private int style;
 
+
     //空心样式
     public static final int STROKE = 0;
-    //渐变的两种颜色
-    private static final int[] SECTION_COLORS ={0xFFFFFFFF, 0xFFFF7400};
+
     //实心样式
     public static final int FILL = 1;
+
+    //圆环形状
+    private int shape;
+
+    //圆
+    public static final int CIRCLE = 0;
+
+    //半圆
+    public static final int SEMI = 1;
+
+    //渐变的两种颜色
+    private static final int[] SECTION_COLORS = {0x00FF7100, 0xFFFF7100};
 
     //进度回调接口
     private OnProgressListener mOnProgressListener;
@@ -115,6 +127,7 @@ public class RingProgressBar extends View {
         max = mTypedArray.getInteger(R.styleable.RingProgressBar_max, 100);
         textIsShow = mTypedArray.getBoolean(R.styleable.RingProgressBar_textIsShow, true);
         style = mTypedArray.getInt(R.styleable.RingProgressBar_style, 0);
+        shape = mTypedArray.getInt(R.styleable.RingProgressBar_shape, 0);
 
         mTypedArray.recycle();
     }
@@ -186,9 +199,9 @@ public class RingProgressBar extends View {
         paint.setStrokeWidth(ringWidth);
         paint.setColor(ringProgressColor);
         /**shader绘制渐变色的弧度*/
-        LinearGradient shader = new LinearGradient(0.0f, height/2.0f, width,
-                height/2.0f, SECTION_COLORS, null, Shader.TileMode.MIRROR);
-        paint.setShader(shader);
+//        LinearGradient shader = new LinearGradient(0.0f, height/2.0f, width,
+//                height/2.0f, SECTION_COLORS, null, Shader.TileMode.MIRROR);
+//        paint.setShader(shader);
 
         //Stroke样式
         RectF strokeOval = new RectF(centre - radius, centre - radius, centre + radius,
@@ -197,19 +210,19 @@ public class RingProgressBar extends View {
         RectF fillOval = new RectF(centre - radius + ringWidth + padding,
                 centre - radius + ringWidth + padding, centre + radius - ringWidth - padding,
                 centre + radius - ringWidth - padding);
-
+        int angle = shape == CIRCLE ? 360 : 180;
         switch (style) {
             case STROKE: {
                 paint.setStyle(Paint.Style.STROKE);
                 paint.setStrokeCap(Paint.Cap.ROUND);
-                canvas.drawArc(strokeOval, -90, 360 * progress / max, false, paint);
+                canvas.drawArc(strokeOval, -180, angle * progress / max, false, paint);
                 break;
             }
             case FILL: {
                 paint.setStyle(Paint.Style.FILL_AND_STROKE);
                 paint.setStrokeCap(Paint.Cap.ROUND);
                 if (progress != 0) {
-                    canvas.drawArc(fillOval, -90, 360 * progress / max, true, paint);
+                    canvas.drawArc(fillOval, -180, angle * progress / max, true, paint);
                 }
                 break;
             }

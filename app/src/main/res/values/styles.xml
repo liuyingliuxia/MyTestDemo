@@ -31,7 +31,7 @@
         <!--显示区域以外是否使用黑色半透明背景-->
         <item name="android:backgroundDimEnabled">true</item>
         <!--就是用来控制灰度的值，当为1时，界面除了我们的dialog内容是高亮显示的，dialog以外的区域是黑色的，完全看不到其他内容，系统的默认值是0.5-->
-<!--        <item name="android:backgroundDimAmount">0.6</item>-->
+        <!--        <item name="android:backgroundDimAmount">0.6</item>-->
         <!--        <item name="android:windowIsFloating">false</item>-->
     </style>
 
@@ -47,6 +47,10 @@
         <attr name="style">
             <enum name="STROKE" value="0" />
             <enum name="FILL" value="1" />
+        </attr>
+        <attr name="shape">
+            <enum name="CIRCLE" value="0" />
+            <enum name="SEMI" value="1" />
         </attr>
     </declare-styleable>
 
