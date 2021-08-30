@@ -94,6 +94,15 @@ android {
             manifestPlaceholders = [APP_NAME: "youtube"]
         }
 
+        smartTubeNext {
+            dimension "default"
+            versionCode = 1000000
+            versionName = "1.0.0"
+            applicationId "com.liskovsoft.smarttubetv.beta"
+
+            manifestPlaceholders = [APP_NAME: "youtube"]
+        }
+
         netflix {
             dimension "default"
             versionCode = 1000000
