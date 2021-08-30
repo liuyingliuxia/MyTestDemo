@@ -11,7 +11,7 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.view.View;
+import android.widget.ProgressBar;
 
 import com.lingong.mytest.R;
 
@@ -20,7 +20,7 @@ import com.lingong.mytest.R;
  * 一个自定义的圆环进度条
  * 可适用于上传下载
  */
-public class RingProgressBar extends View {
+public class RingProgressBar extends ProgressBar {
 
     //画笔对象
     private Paint paint;
@@ -67,7 +67,7 @@ public class RingProgressBar extends View {
     //空心样式
     public static final int STROKE = 0;
     //渐变的两种颜色
-    private static final int[] SECTION_COLORS ={0xFFFFFFFF, 0xFFFF7400};
+    private static final int[] SECTION_COLORS ={0x00FF7100, 0xFFFF7100};
     //实心样式
     public static final int FILL = 1;
 

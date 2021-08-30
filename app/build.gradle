@@ -209,6 +209,13 @@ android {
             manifestPlaceholders = [APP_NAME: "@string/app_name"]
         }
 
+        webSpeedTest {
+            dimension "default"
+            versionCode = 1000000
+            versionName = "1.0.0"
+            applicationId "com.lingong.demo"
+            manifestPlaceholders = [APP_NAME: "@string/app_name"]
+        }
     }
 
     applicationVariants.all { variant ->

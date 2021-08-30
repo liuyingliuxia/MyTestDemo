@@ -1,12 +1,19 @@
 package com.lingong.mytest.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,108 +22,106 @@ import com.lingong.mytest.inter.OnSoftKeyBoardChangeListener;
 import com.lingong.mytest.inter.SoftKeyBoardListener;
 import com.lingong.mytest.utils.LogUtil;
 
+import java.util.Locale;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     public static final String TAG = "MainActivity";
-    private final static int MSG_CLEAN_START = 99;
-    private int currentProcess;
-    private Handler handler = new Handler(Looper.getMainLooper()) {
-
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case MSG_CLEAN_START:
-                    if (!((Activity) binding.getRoot().getContext()).isFinishing()) {
-                        LogUtil.d("ringPb currentProcess = " + currentProcess);
-                        binding.ringPb.setProgress(currentProcess);
-                        binding.ringDemo.setProgress(currentProcess);
-                    }
-                    break;
-            }
-        }
-    };
-
+    String url = "https://www.baidu.cn/";
+    String testUrl = "https://m.speedtest.cn/";
+    @SuppressLint("JavascriptInterface")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        initWebSetting();
+//        binding.webView.setWebViewClient(new SslWebViewClient(this, webView, certFilePath) {
+//            @Override
+//            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//                view.loadUrl(url);
+//                return true;
+//            }
+//
+//            @Override
+//            public void onPageFinished(WebView view, String url) {
+//                binding.webView.setVisibility(View.VISIBLE);
+//            }
+//        });
 
-        SoftKeyBoardListener.setListener(this, new OnSoftKeyBoardChangeListener() {
-                    @Override
-                    public void keyBoardShow() {
-                        LogUtil.d("keyBoardShow ... ");
-                    }
-
-                    @Override
-                    public void keyBoardHide() {
-                        LogUtil.d("keyBoardHide ... ");
-                    }
-                }
-
-        );
-        binding.btnTest1.setOnClickListener(v -> {
-
-            Intent intent = new Intent("com.jmgo.action.SHOW_TOU");
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-
-//            Intent broadIntent = new Intent("com.jmgo.ota.firmware");
-//            broadIntent.putExtra( "firmware_version","1.0.66");
-//            sendBroadcast(broadIntent);
-        });
-
-//        binding.btnTest2.setText("JMGO");
-        binding.btnTest2.setOnClickListener(v -> {
-
-            Intent intent = new Intent();
-            intent.setClassName("com.jmgo.luna", "com.jmgo.luna.ui.JmgoFunActivity");
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-//            Intent intent = new Intent("com.jmgo.action.SHOW_TOU");
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            intent.putExtra("TouUrlNameConst" ,2);//1 主协议 ；2 副协议
-//            startActivity(intent);
-        });
-//        binding.ringPb.setMax(500);
-//        binding.ringPb.setProgress(0);
-        startTesting();
+        binding.webView.addJavascriptInterface(this, "android");
+        binding.webView.loadUrl(testUrl);
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
+    private void initWebSetting() {
+        // webSettings
+        WebSettings webSettings =  binding.webView.getSettings();
+        // 允许JS代码
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        // 设置自适应屏幕，两者合用
+        webSettings.setUseWideViewPort(true);
+        webSettings.setLoadWithOverviewMode(true);
+        // 设置5.0以上开启混合模式加载
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+        }
 
-    /**
-     * 只有UI 效果
-     */
-    private void startTesting() {
-        Random random = new Random();
+        // 允许Dom缓存
+        webSettings.setDomStorageEnabled(true);
+        // 允许App缓存
+        webSettings.setAppCacheEnabled(true);
+        // 允许访问File
+        webSettings.setAllowFileAccess(true);
+        // 允许自动加载图片
+        webSettings.setLoadsImagesAutomatically(true);
+        // 设置布局算法
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
+        // 是否允许自动播放音视频
+        webSettings.setMediaPlaybackRequiresUserGesture(false);
+    }
 
-        Thread thread = new Thread(() -> {
-            for (; ; ) {
-                try {
-                    Thread.sleep(600);
-                    if (currentProcess < 500) {
-                        currentProcess += random.nextInt(20);
-                        if (!((Activity) this).isFinishing()) {
-                            handler.sendEmptyMessage(MSG_CLEAN_START);
-                        }
-                    } else {
-                        break;
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+//
+//    @JavascriptInterface
+//    public String getAndroidInfo() {
+//        LogUtil.d("getAndroidInfo...");
+//        AndroidInfo androidInfo = new AndroidInfo();
+//        androidInfo.setCategoryid("1");
+//        androidInfo.setMac("wl:wl:wl:wl:wl:wl");
+//        androidInfo.setCountry(Locale.getDefault().getCountry());
+//        androidInfo.setDeviceid("1");
+//        androidInfo.setProfileid("1");
+//        Gson gson = new Gson();
+//        String json = gson.toJson(androidInfo);
+//        LogUtil.d("json: " + json);
+//        return json;
+//    }
+
+    @JavascriptInterface
+    public void exitApp() {
+        LogUtil.d("exitApp...");
+        finish();
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        int keyCode = event.getKeyCode();
+        int action = event.getAction();
+        if (action == KeyEvent.ACTION_DOWN) {
+            LogUtil.d("dispatchKeyEvent...  keyCode: " + keyCode);
+            if (keyCode == KeyEvent.KEYCODE_BACK) {
+                sendVirtualKey(KeyEvent.KEYCODE_DEL);
+                return true;
             }
-
-        });
-        thread.start();
-
-
+        }
+        return super.dispatchKeyEvent(event);
     }
 
     private void sendVirtualKey(int keyCode) {
-        Log.v(TAG, "sendVirtualKey...  keyCode: " + keyCode);
+        LogUtil.d("sendVirtualKey...  keyCode: " + keyCode);
         try {
             String keyCommand = "input keyevent " + keyCode;
             Runtime runtime = Runtime.getRuntime();
@@ -125,6 +130,5 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
 
 }
