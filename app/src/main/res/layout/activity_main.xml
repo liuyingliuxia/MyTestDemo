@@ -18,11 +18,18 @@
             android:layout_width="@dimen/dp_200"
             android:layout_height="@dimen/dp_200"
             android:indeterminate="false"
+            android:visibility="gone"
             app:max="500"
+            app:ringProgressColor="@color/progress_end"
             app:ringWidth="@dimen/dp_10"
-            app:shape="SEMI"
-            app:ringProgressColor="@color/progress"
-            android:visibility="visible"/>
+            app:shape="SEMI" />
+
+        <com.lingong.mytest.widget.UmeRingProgressView
+            android:id="@+id/umeRingPv"
+            android:layout_width="@dimen/dp_160"
+            android:layout_height="@dimen/dp_160"
+            app:circle_angle="0"
+            app:ring_width="@dimen/dp_10"/>
 
         <com.lingong.mytest.widget.RingDemo
             android:id="@+id/ringDemo"
@@ -30,8 +37,8 @@
             android:layout_height="@dimen/dp_200"
             android:layout_marginStart="@dimen/dp_10"
             android:indeterminate="false"
-            app:ringWidth="@dimen/dp_10"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            app:ringWidth="@dimen/dp_10" />
 
         <com.yhd.semicircle.SemiCircleView
             android:id="@+id/smcCv"

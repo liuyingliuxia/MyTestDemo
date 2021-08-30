@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                         LogUtil.d("ringPb currentProcess = " + currentProcess);
                         binding.ringPb.setAlpha((float) currentProcess / 500.00f);
                         binding.ringPb.setProgress(currentProcess);
+                        binding.umeRingPv.setProgress((float) currentProcess / 500.00f);
 //                        binding.ringDemo.setProgress(currentProcess);
                     }
                     break;

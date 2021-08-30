@@ -49,6 +49,7 @@
     <color name="yellow_ffad12">#FFAD12</color>
     <color name="text_color_white">@android:color/white</color>
 
-    <color name="progress">#FFFF7100</color>
+    <color name="progress_end">#FFFF7100</color>
+    <color name="progress_start">#00FF7100</color>
 
 </resources>
