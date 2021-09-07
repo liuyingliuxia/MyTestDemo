@@ -23,7 +23,6 @@ import androidx.core.content.ContextCompat;
 
 import com.lingong.mytest.R;
 import com.lingong.mytest.utils.LogUtil;
-
 /**
  * @description 圆环进度条：
  */
@@ -36,13 +35,13 @@ public class UmeRingProgressView extends View {
     private Paint rightProgressSmallCirclePaint;//右边进度小圆
     private Paint progressPaint;
 
-    private int ringWidth = dp2px(10);//圆环宽度
+    private int ringWidth = dp2px(20);//圆环宽度
     private int smallCircleRadius = ringWidth / 2;//进度小圆半径
     private float progress = 0f;//进度
     private int angle = 20;// 15°//往内弯的角度
     private int endColor = ContextCompat.getColor(getContext(), R.color.progress_end);//渐变结束的颜色值
     private int startColor = ContextCompat.getColor(getContext(), R.color.progress_start);//渐变开始颜色值
-    private int ringBackGroundColor = ContextCompat.getColor(getContext(), R.color.white);
+    private int ringBackGroundColor = ContextCompat.getColor(getContext(), R.color.transparent);
 
     public UmeRingProgressView(Context context) {
         super(context);
@@ -53,7 +52,7 @@ public class UmeRingProgressView extends View {
     private void getAttrs(Context context, AttributeSet attributeSet) {
         try {
             TypedArray array = context.obtainStyledAttributes(attributeSet, R.styleable.UmeRingProgressView);
-            ringBackGroundColor = array.getColor(R.styleable.UmeRingProgressView_background_ring_color, ContextCompat.getColor(getContext(), R.color.white));
+            ringBackGroundColor = array.getColor(R.styleable.UmeRingProgressView_background_ring_color, ContextCompat.getColor(getContext(), R.color.transparent));
             startColor = array.getColor(R.styleable.UmeRingProgressView_start_progress_color, ContextCompat.getColor(getContext(), R.color.progress_start));
             endColor = array.getColor(R.styleable.UmeRingProgressView_end_progress_color, ContextCompat.getColor(getContext(), R.color.progress_end));
             ringWidth = (int) array.getDimension(R.styleable.UmeRingProgressView_ring_width, dp2px(10));
@@ -61,7 +60,7 @@ public class UmeRingProgressView extends View {
             smallCircleRadius = ringWidth / 2;
             array.recycle();
         } catch (Exception e) {
-            LogUtil.e("TAG", e.getMessage());
+          LogUtil.e("TAG", e.getMessage());
         }
     }
 

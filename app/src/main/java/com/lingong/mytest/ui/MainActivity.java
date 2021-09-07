@@ -10,7 +10,6 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.lingong.mytest.R;
 import com.lingong.mytest.databinding.ActivityMainBinding;
 import com.lingong.mytest.inter.OnSoftKeyBoardChangeListener;
 import com.lingong.mytest.inter.SoftKeyBoardListener;
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 case MSG_CLEAN_START:
                     if (!((Activity) binding.getRoot().getContext()).isFinishing()) {
                         LogUtil.d("ringPb currentProcess = " + currentProcess);
-                        binding.ringPb.setAlpha((float) currentProcess / 500.00f);
+//                        binding.ringPb.setAlpha((float) currentProcess / 100.00f);
                         binding.ringPb.setProgress(currentProcess);
                         binding.umeRingPv.setProgress((float) currentProcess / 500.00f);
 //                        binding.ringDemo.setProgress(currentProcess);
@@ -117,6 +116,12 @@ public class MainActivity extends AppCompatActivity {
         thread.start();
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 
     private void sendVirtualKey(int keyCode) {

@@ -1,16 +1,16 @@
 package com.lingong.mytest.widget;
 
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 
 import com.lingong.mytest.R;
@@ -79,9 +79,9 @@ public class RingProgressBar extends View {
 
     //半圆
     public static final int SEMI = 1;
-
     //渐变的两种颜色
-    private static final int[] SECTION_COLORS = {0x00FF7100, 0xFFFF7100};
+//    private static final int[] SECTION_COLORS ={0x00FF7400, 0xFFFF7400};
+
 
     //进度回调接口
     private OnProgressListener mOnProgressListener;
@@ -114,7 +114,7 @@ public class RingProgressBar extends View {
 
         //初始化默认宽高值
         result = dp2px(100);
-
+//        LogUtil.d("result = " + result + " dp2px_ " + dp2px_(100));
         //初始化属性
         TypedArray mTypedArray = context.obtainStyledAttributes(attrs, R.styleable.RingProgressBar);
 
@@ -210,19 +210,19 @@ public class RingProgressBar extends View {
         RectF fillOval = new RectF(centre - radius + ringWidth + padding,
                 centre - radius + ringWidth + padding, centre + radius - ringWidth - padding,
                 centre + radius - ringWidth - padding);
-        int angle = shape == CIRCLE ? 360 : 180;
+//        int angle = shape == CIRCLE ? 360 : 180;
         switch (style) {
             case STROKE: {
                 paint.setStyle(Paint.Style.STROKE);
                 paint.setStrokeCap(Paint.Cap.ROUND);
-                canvas.drawArc(strokeOval, -180, angle * progress / max, false, paint);
+                canvas.drawArc(strokeOval, -220, 260 * progress / max, false, paint);
                 break;
             }
             case FILL: {
                 paint.setStyle(Paint.Style.FILL_AND_STROKE);
                 paint.setStrokeCap(Paint.Cap.ROUND);
                 if (progress != 0) {
-                    canvas.drawArc(fillOval, -180, angle * progress / max, true, paint);
+                    canvas.drawArc(fillOval, -220, 260 * progress / max, true, paint);
                 }
                 break;
             }
@@ -421,6 +421,10 @@ public class RingProgressBar extends View {
 
         float density = getContext().getResources().getDisplayMetrics().density;
         return (int) (dp * density + 0.5f);
+    }
+
+    protected int dp2px_(int dpVal) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpVal, getResources().getDisplayMetrics());
     }
 
 

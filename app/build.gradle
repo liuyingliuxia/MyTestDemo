@@ -208,7 +208,21 @@ android {
             applicationId "com.lingong.demo"
             manifestPlaceholders = [APP_NAME: "@string/app_name"]
         }
+        realtekSettings {
+            dimension "default"
+            versionCode = 1000000
+            versionName = "1.0.0"
+            applicationId "com.realtek.tv.settings"
+            manifestPlaceholders = [APP_NAME: "@string/app_name"]
+        }
 
+        kgznTvplayer {
+            dimension "default"
+            versionCode = 1000000
+            versionName = "1.0.0"
+            applicationId "com.kgzn.tvplayer"
+            manifestPlaceholders = [APP_NAME: "@string/app_name"]
+        }
     }
 
     applicationVariants.all { variant ->
