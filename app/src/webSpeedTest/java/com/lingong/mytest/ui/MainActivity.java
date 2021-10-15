@@ -1,29 +1,16 @@
 package com.lingong.mytest.ui;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
-import android.webkit.WebView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.lingong.mytest.databinding.ActivityMainBinding;
-import com.lingong.mytest.inter.OnSoftKeyBoardChangeListener;
-import com.lingong.mytest.inter.SoftKeyBoardListener;
 import com.lingong.mytest.utils.LogUtil;
-
-import java.util.Locale;
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 

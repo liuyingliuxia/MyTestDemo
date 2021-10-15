@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "com.lingong.mytest"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
@@ -77,135 +77,12 @@ android {
 
     flavorDimensions "default"
     productFlavors {
-        store3_0{
+
+       speedTest {
             dimension "default"
             versionCode = 1000000
             versionName = "1.0.0"
-            applicationId "zeasn.open.technical.tv.store.chiptrip.rk3326"
-
-            manifestPlaceholders = [APP_NAME: "store3_0"]
-        }
-        youtube {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "com.google.android.youtube.tv"
-
-            manifestPlaceholders = [APP_NAME: "youtube"]
-        }
-
-        smartTubeNext {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "com.liskovsoft.smarttubetv.beta"
-
-            manifestPlaceholders = [APP_NAME: "youtube"]
-        }
-
-        netflix {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "com.netflix.mediaclient"
-
-            manifestPlaceholders = [APP_NAME: "netflix"]
-        }
-
-
-        spotvnow {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "kr.co.spotvnow.app"
-
-            manifestPlaceholders = [APP_NAME: "spotvnow"]
-        }
-
-        console {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "com.cptp.console"
-
-            manifestPlaceholders = [APP_NAME: "console"]
-        }
-
-        airscreen {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "com.ionitech.airscreen"
-
-            manifestPlaceholders = [APP_NAME: "airscreen"]
-        }
-
-
-        chrome {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "com.android.chrome"
-
-            manifestPlaceholders = [APP_NAME: "chrome"]
-        }
-
-
-        gomplayerko {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "com.gretech.gomplayerko"
-
-            manifestPlaceholders = [APP_NAME: "gomplayerko"]
-        }
-
-        naverplayer {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "com.nhn.android.naverplayer"
-
-            manifestPlaceholders = [APP_NAME: "naverplayer"]
-        }
-
-        pooqV2 {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "kr.co.captv.pooqV2"
-
-            manifestPlaceholders = [APP_NAME: "pooqV2"]
-        }
-
-        afreecatv {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "kr.co.afreecatv.atv"
-            manifestPlaceholders = [APP_NAME: "afreecatv"]
-        }
-
-        tving {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "net.cj.cjhv.gs.tving"
-            manifestPlaceholders = [APP_NAME: "tving"]
-        }
-        localLanguageTest {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "com.lingong.demo"
-            manifestPlaceholders = [APP_NAME: "@string/app_name"]
-        }
-
-        overlayDemo {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "com.lingong.demo"
+            applicationId "com.lingong.speedtest"
             manifestPlaceholders = [APP_NAME: "@string/app_name"]
         }
 
@@ -239,7 +116,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     def lifecycle_version = "2.3.1"
-
+    speedTestImplementation 'fr.bmartel:jspeedtest:1.32.1'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 }

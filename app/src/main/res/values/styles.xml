@@ -10,7 +10,7 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@mipmap/icon_home_bg</item>
+        <item name="android:windowBackground">@color/white</item>
         <!--        <item name="android:windowBackground">@color/main_bg_color</item>-->
     </style>
 
