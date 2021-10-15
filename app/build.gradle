@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "com.lingong.mytest"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
@@ -30,7 +30,10 @@ android {
         }
     }
 
-
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -77,7 +80,7 @@ android {
 
     flavorDimensions "default"
     productFlavors {
-        store3_0{
+        store3_0 {
             dimension "default"
             versionCode = 1000000
             versionName = "1.0.0"
@@ -223,6 +226,14 @@ android {
             applicationId "com.kgzn.tvplayer"
             manifestPlaceholders = [APP_NAME: "@string/app_name"]
         }
+
+        speedTest {
+            dimension "default"
+            versionCode = 1000000
+            versionName = "1.0.0"
+            applicationId "com.lingong.speedtest"
+            manifestPlaceholders = [APP_NAME: "@string/app_name"]
+        }
     }
 
     applicationVariants.all { variant ->
@@ -246,7 +257,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     def lifecycle_version = "2.3.1"
-
+    speedTestImplementation 'fr.bmartel:jspeedtest:1.32.1'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     api 'com.github.yinhaide:HDSemicircle:0.0.1'

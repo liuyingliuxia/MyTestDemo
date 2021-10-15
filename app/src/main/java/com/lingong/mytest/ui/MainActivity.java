@@ -1,7 +1,6 @@
 package com.lingong.mytest.ui;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -13,12 +12,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.lingong.mytest.databinding.ActivityMainBinding;
 import com.lingong.mytest.inter.OnSoftKeyBoardChangeListener;
 import com.lingong.mytest.inter.SoftKeyBoardListener;
+import com.lingong.mytest.utils.DeviceUtil;
 import com.lingong.mytest.utils.LogUtil;
 
 import java.util.Random;
+
 /**
  * 不忘初心
- *
+ * <p>
  * ┌───┐   ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┐  ┌┐    ┌┐    ┌┐
  * │Esc│   │ F1│ F2│ F3│ F4│ │ F5│ F6│ F7│ F8│ │ F9│F10│F11│F12│ │P/S│S L│P/B│  └┘    └┘    └┘
  * └───┘   └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┘
@@ -33,7 +34,6 @@ import java.util.Random;
  * ├─────┬──┴─┬─┴──┬┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤ ┌───┼───┼───┐ ├───┴───┼───┤ E││
  * │ Ctrl│    │Alt │         Space         │ Alt│    │    │Ctrl│ │ ← │ ↓ │ → │ │   0   │ . │←─┘│
  * └─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
- *
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
                     if (!((Activity) binding.getRoot().getContext()).isFinishing()) {
                         LogUtil.d("ringPb currentProcess = " + currentProcess);
 //                        binding.ringPb.setAlpha((float) currentProcess / 100.00f);
-                        binding.ringPb.setProgress(currentProcess);
-                        binding.umeRingPv.setProgress((float) currentProcess / 500.00f);
+//                        binding.ringPb.setProgress(currentProcess);
+//                        binding.umeRingPv.setProgress((float) currentProcess / 500.00f);
 //                        binding.ringDemo.setProgress(currentProcess);
                     }
                     break;
@@ -78,10 +78,11 @@ public class MainActivity extends AppCompatActivity {
 
         );
         binding.btnTest1.setOnClickListener(v -> {
-
-            Intent intent = new Intent("com.jmgo.action.SHOW_TOU");
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+            binding.btnTest1.setText(DeviceUtil.getEth0Mac("eth0"));
+//            binding.btnTest1.setText(DeviceUtil.getEth0Mac("eth0"));
+//            Intent intent = new Intent("com.jmgo.action.SHOW_TOU");
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(intent);
 
 //            Intent broadIntent = new Intent("com.jmgo.ota.firmware");
 //            broadIntent.putExtra( "firmware_version","1.0.66");
@@ -90,11 +91,11 @@ public class MainActivity extends AppCompatActivity {
 
 //        binding.btnTest2.setText("JMGO");
         binding.btnTest2.setOnClickListener(v -> {
-
-            Intent intent = new Intent();
-            intent.setClassName("com.jmgo.luna", "com.jmgo.luna.ui.JmgoFunActivity");
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+            binding.btnTest2.setText(DeviceUtil.getEth0Mac("wlan0"));
+//            Intent intent = new Intent();
+//            intent.setClassName("com.jmgo.luna", "com.jmgo.luna.ui.JmgoFunActivity");
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(intent);
 //            Intent intent = new Intent("com.jmgo.action.SHOW_TOU");
 //            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //            intent.putExtra("TouUrlNameConst" ,2);//1 主协议 ；2 副协议
@@ -102,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         });
 //        binding.ringPb.setMax(500);
 //        binding.ringPb.setProgress(0);
-        startTesting();
+//        startTesting();
 //        binding.ringPb.setRingColor(getResources().getColor(R.color.blue0D81F3));
     }
 
