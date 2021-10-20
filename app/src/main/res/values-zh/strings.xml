@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">覆盖apk测试用</string>
-    <string name="button1">按一下</string>
-    <string name="button2">按两下</string>
+
+    <string name="button1">一</string>
+    <string name="button2">二</string>
+    <string name="button3">三</string>
+    <string name="button4">四</string>
+    <string name="button5">五</string>
+    <string name="button6">六</string>
+    <string name="button7">七</string>
+    <string name="button8">八</string>
+    <string name="button9">九</string>
+
 </resources>

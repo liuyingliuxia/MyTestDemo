@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">overlay</string>
-    <string name="button1">demo1</string>
-    <string name="button2">demo2</string>
+    <string name="button1"> one</string>
+    <string name="button2"> two</string>
+    <string name="button3"> three</string>
+    <string name="button4"> four</string>
+    <string name="button5"> five</string>
+    <string name="button6"> six</string>
+    <string name="button7"> seven</string>
+    <string name="button8"> eight</string>
+    <string name="button9"> nine</string>
 </resources>

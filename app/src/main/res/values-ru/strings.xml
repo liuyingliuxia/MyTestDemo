@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">OverlayDemo_1</string>
-    <string name="button1"> Кнопка 1 </string>
-    <string name="button2"> Кнопка 2 </string>
+    <string name="button1"> один </string>
+    <string name="button2"> два </string>
+    <string name="button3"> три </string>
+    <string name="button4"> четыре </string>
+    <string name="button5"> 5 </string>
+    <string name="button6"> Шесть </string>
+    <string name="button7"> Семь </string>
+    <string name="button8"> восемь </string>
+    <string name="button9"> девять </string>
 </resources>

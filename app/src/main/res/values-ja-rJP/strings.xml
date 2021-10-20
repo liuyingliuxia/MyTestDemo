@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">デモ</string>
-    <string name="button1">ボタン1 </string>
-    <string name="button2">ボタン2 </string>
+    <string name="app_name">overlay</string>
+    <string name="button1">①</string>
+    <string name="button2">②</string>
+    <string name="button3">③</string>
+    <string name="button4">④</string>
+    <string name="button5">⑤</string>
+    <string name="button6">⑥</string>
+    <string name="button7">⑦</string>
+    <string name="button8">⑧</string>
+    <string name="button9">⑨</string>
 </resources>
