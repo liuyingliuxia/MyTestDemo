@@ -3,4 +3,8 @@
     <color name="black">#FFFFFF</color>
     <color name="blue">#372448</color>
     <color name="white">#000000</color>
+
+    <color name="wave_from_color">#FFFFFF</color>
+    <color name="wave_to_color">#000000</color>
+
 </resources>

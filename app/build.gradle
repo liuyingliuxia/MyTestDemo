@@ -77,18 +77,11 @@ android {
 
     flavorDimensions "default"
     productFlavors {
-//        overlayDemo {
-//            dimension "default"
-//            versionCode = 1000000
-//            versionName = "1.0.0"
-//            applicationId "com.lingong.demo"
-//            manifestPlaceholders = [APP_NAME: "@string/app_name"]
-//        }
-        overlayDemo_1 {
+        overlayDemo {
             dimension "default"
-            versionCode = 1000004
-            versionName = "1.0.0.4"
-            applicationId "com.lingong.demo.overlay"
+            versionCode = 1000005
+            versionName = "1.0.0.5"
+            applicationId "com.zeasn.whale.open.launcher.technical.overlay"
             manifestPlaceholders = [APP_NAME: "@string/app_name"]
         }
 
@@ -97,7 +90,7 @@ android {
 
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
-            outputFileName = "DemoTest_Overlay-${variant.productFlavors[0].name}_${buildType.name}_${productFlavors.versionName}.apk"
+            outputFileName = "OverlayDemo-${variant.productFlavors[0].name}_${buildType.name}_${productFlavors.versionName}.apk"
         }
     }
 

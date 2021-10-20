@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.lingong.demo.overlay">
+    package="com.zeasn.whale.open.launcher.technical.overlay">
 
     <application android:hasCode="false" />
 
     <overlay
-        android:priority="1"
-        android:targetPackage="com.lingong.demo"
-        android:isStatic="true"/>
+        android:isStatic="true"
+        android:priority="4"
+        android:targetPackage="com.zeasn.whale.open.launcher.technical" />
 </manifest>
