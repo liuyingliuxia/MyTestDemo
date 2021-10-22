@@ -6,13 +6,15 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewTreeObserver;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.lingong.mytest.databinding.ActivityMainBinding;
 import com.lingong.mytest.inter.OnSoftKeyBoardChangeListener;
 import com.lingong.mytest.inter.SoftKeyBoardListener;
-import com.lingong.mytest.utils.DeviceUtil;
+import com.lingong.mytest.utils.DisplayUtil;
 import com.lingong.mytest.utils.LogUtil;
 
 import java.util.Random;
@@ -48,10 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 case MSG_CLEAN_START:
                     if (!((Activity) binding.getRoot().getContext()).isFinishing()) {
                         LogUtil.d("ringPb currentProcess = " + currentProcess);
-//                        binding.ringPb.setAlpha((float) currentProcess / 100.00f);
-//                        binding.ringPb.setProgress(currentProcess);
-//                        binding.umeRingPv.setProgress((float) currentProcess / 500.00f);
-//                        binding.ringDemo.setProgress(currentProcess);
                     }
                     break;
             }
@@ -61,8 +59,28 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Handle the splash screen transition.
+//        SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        final View content = findViewById(android.R.id.content);
+        content.getViewTreeObserver().addOnPreDrawListener(
+                new ViewTreeObserver.OnPreDrawListener() {
+                    @Override
+                    public boolean onPreDraw() {
+                        return true;
+                        // Check if the initial data is ready.
+//                        if (mViewModel.isReady()) {
+//                            // The content is ready; start drawing.
+//                            content.getViewTreeObserver().removeOnPreDrawListener(this);
+//                            return true;
+//                        } else {
+//                            // The content is not ready; suspend.
+//                            return false;
+//                        }
+                    }
+                });
 
         SoftKeyBoardListener.setListener(this, new OnSoftKeyBoardChangeListener() {
                     @Override
@@ -78,33 +96,17 @@ public class MainActivity extends AppCompatActivity {
 
         );
         binding.btnTest1.setOnClickListener(v -> {
-            binding.btnTest1.setText(DeviceUtil.getEth0Mac("eth0"));
-//            binding.btnTest1.setText(DeviceUtil.getEth0Mac("eth0"));
-//            Intent intent = new Intent("com.jmgo.action.SHOW_TOU");
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            startActivity(intent);
 
-//            Intent broadIntent = new Intent("com.jmgo.ota.firmware");
-//            broadIntent.putExtra( "firmware_version","1.0.66");
-//            sendBroadcast(broadIntent);
         });
 
-//        binding.btnTest2.setText("JMGO");
         binding.btnTest2.setOnClickListener(v -> {
-            binding.btnTest2.setText(DeviceUtil.getEth0Mac("wlan0"));
-//            Intent intent = new Intent();
-//            intent.setClassName("com.jmgo.luna", "com.jmgo.luna.ui.JmgoFunActivity");
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            startActivity(intent);
-//            Intent intent = new Intent("com.jmgo.action.SHOW_TOU");
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            intent.putExtra("TouUrlNameConst" ,2);//1 主协议 ；2 副协议
-//            startActivity(intent);
         });
-//        binding.ringPb.setMax(500);
-//        binding.ringPb.setProgress(0);
-//        startTesting();
-//        binding.ringPb.setRingColor(getResources().getColor(R.color.blue0D81F3));
+
+
+        LogUtil.d("Windows real width = " + DisplayUtil.getWindowWidth(this) +
+                " real height = " + DisplayUtil.getWindowHeight(this) + " window density = " +
+                DisplayUtil.getWindowDensity(this));
+
     }
 
 
