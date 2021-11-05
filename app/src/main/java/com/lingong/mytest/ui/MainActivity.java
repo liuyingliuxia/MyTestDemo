@@ -14,8 +14,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.lingong.mytest.databinding.ActivityMainBinding;
 import com.lingong.mytest.inter.OnSoftKeyBoardChangeListener;
 import com.lingong.mytest.inter.SoftKeyBoardListener;
+import com.lingong.mytest.utils.DeviceIdUtil;
 import com.lingong.mytest.utils.DisplayUtil;
 import com.lingong.mytest.utils.LogUtil;
+import com.lingong.mytest.utils.ShellUtils;
+import com.lingong.mytest.utils.SnUtil;
+import com.lingong.mytest.utils._ShellUtils;
 
 import java.util.Random;
 
@@ -107,6 +111,13 @@ public class MainActivity extends AppCompatActivity {
                 " real height = " + DisplayUtil.getWindowHeight(this) + " window density = " +
                 DisplayUtil.getWindowDensity(this));
 
+        LogUtil.d("loadFlashId = " + SnUtil.loadFlashId());
+        LogUtil.d("get blkid ===== " + ShellUtils.execRootCmd("blkid\n") + " _Shell = " + _ShellUtils.execCommand("blkid\n" ,false));
+//        binding.btnTest1.setText(SnUtil.loadFlashId());
+//        binding.btnTest2.setText(_ShellUtils.execCommand("blkid\n" ,false).result);
+        binding.tvDeviceId.setText(DeviceIdUtil.getDeviceId(this));
+
+
     }
 
 
@@ -138,6 +149,35 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //        new Handler().post(new Runnable() {
+//            @Override
+//            public void run() {
+//                // 判断辅助功能是否开启
+////        String enableAccessibilityService = Settings.Secure.getString(getContentResolver(), Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+////        String accessibilityEnabled = Settings.Secure.getString(getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED);
+//
+//                String enableAccessibilityService = ShellUtils.execRootCmd(GET_ACCESSIBILITY_SERVICE_CMD);
+//                String accessibilityEnabled = ShellUtils.execRootCmd(GET_ACCESSIBILITY_ENABLED_CMD);
+//
+//                LogUtil.d("AvsSelfApp:  enableAccessibilityService: " + enableAccessibilityService + ", accessibilityEnabled: " + accessibilityEnabled);
+//                if (enableAccessibilityService.isEmpty() || "0".equals(accessibilityEnabled)) {
+//                    //use CMD open AccessibilityService
+//                    ShellUtils.execRootCmd(ACCESSIBILITY_SERVICE_CMD);
+//                    ShellUtils.execRootCmd(ACCESSIBILITY_ENABLED_CMD);
+//
+//                    LogUtil.d("AvsSelfApp2 :  enableAccessibilityService: " + enableAccessibilityService + ", accessibilityEnabled: " + accessibilityEnabled);
+//
+//                }
+//            }
+//        });
+
+    }
+
 
     @Override
     public void onBackPressed() {

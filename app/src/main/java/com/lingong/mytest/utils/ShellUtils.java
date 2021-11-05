@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * android 12 上无法成功执行
- * @deprecated
+ * 有些命令
+ *  需要uid.system 和 系统签名才能生效
  */
 public class ShellUtils {
 
@@ -42,8 +42,8 @@ public class ShellUtils {
         DataInputStream dis = null;
 
         try {
-            Process p = Runtime.getRuntime().exec("/system/xbin/su");
-//            Process p = Runtime.getRuntime().exec("sh");
+//            Process p = Runtime.getRuntime().exec("/system/xbin/su");
+            Process p = Runtime.getRuntime().exec("sh");
             dos = new DataOutputStream(p.getOutputStream());
             dis = new DataInputStream(p.getInputStream());
 

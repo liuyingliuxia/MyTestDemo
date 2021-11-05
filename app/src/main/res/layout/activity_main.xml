@@ -13,63 +13,64 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-<!--        <com.lingong.mytest.widget.RingProgressBar-->
-<!--            android:id="@+id/ringPb"-->
-<!--            android:layout_width="@dimen/dp_200"-->
-<!--            android:layout_height="@dimen/dp_200"-->
-<!--            android:indeterminate="false"-->
-<!--            android:visibility="visible"-->
-<!--            app:max="500"-->
-<!--            app:ringProgressColor="@color/progress_end"-->
-<!--            app:ringWidth="@dimen/dp_20"-->
-<!--            app:shape="SEMI" />-->
+        <!--        <com.lingong.mytest.widget.RingProgressBar-->
+        <!--            android:id="@+id/ringPb"-->
+        <!--            android:layout_width="@dimen/dp_200"-->
+        <!--            android:layout_height="@dimen/dp_200"-->
+        <!--            android:indeterminate="false"-->
+        <!--            android:visibility="visible"-->
+        <!--            app:max="500"-->
+        <!--            app:ringProgressColor="@color/progress_end"-->
+        <!--            app:ringWidth="@dimen/dp_20"-->
+        <!--            app:shape="SEMI" />-->
 
-<!--        <com.lingong.mytest.widget.UmeRingProgressView-->
-<!--            android:id="@+id/umeRingPv"-->
-<!--            android:layout_width="@dimen/dp_200"-->
-<!--            android:layout_height="@dimen/dp_200"-->
-<!--            android:layout_marginStart="@dimen/dp_20"-->
-<!--            app:circle_angle="50"-->
-<!--            android:visibility="visible"-->
-<!--            app:ring_width="@dimen/dp_20"/>-->
+        <!--        <com.lingong.mytest.widget.UmeRingProgressView-->
+        <!--            android:id="@+id/umeRingPv"-->
+        <!--            android:layout_width="@dimen/dp_200"-->
+        <!--            android:layout_height="@dimen/dp_200"-->
+        <!--            android:layout_marginStart="@dimen/dp_20"-->
+        <!--            app:circle_angle="50"-->
+        <!--            android:visibility="visible"-->
+        <!--            app:ring_width="@dimen/dp_20"/>-->
 
-<!--        <com.lingong.mytest.widget.RingDemo-->
-<!--            android:id="@+id/ringDemo"-->
-<!--            android:layout_width="@dimen/dp_200"-->
-<!--            android:layout_height="@dimen/dp_200"-->
-<!--            android:layout_marginStart="@dimen/dp_10"-->
-<!--            android:indeterminate="false"-->
-<!--            android:visibility="gone"-->
-<!--            app:ringWidth="@dimen/dp_10" />-->
+        <!--        <com.lingong.mytest.widget.RingDemo-->
+        <!--            android:id="@+id/ringDemo"-->
+        <!--            android:layout_width="@dimen/dp_200"-->
+        <!--            android:layout_height="@dimen/dp_200"-->
+        <!--            android:layout_marginStart="@dimen/dp_10"-->
+        <!--            android:indeterminate="false"-->
+        <!--            android:visibility="gone"-->
+        <!--            app:ringWidth="@dimen/dp_10" />-->
 
-<!--        <com.yhd.semicircle.SemiCircleView-->
-<!--            android:id="@+id/smcCv"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="16dp"-->
-<!--            android:layout_marginEnd="16dp"-->
-<!--            android:background="@color/white"-->
-<!--            android:visibility="gone"-->
-<!--            app:se_deepColor="#FF7100" />-->
+        <!--        <com.yhd.semicircle.SemiCircleView-->
+        <!--            android:id="@+id/smcCv"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="16dp"-->
+        <!--            android:layout_marginEnd="16dp"-->
+        <!--            android:background="@color/white"-->
+        <!--            android:visibility="gone"-->
+        <!--            app:se_deepColor="#FF7100" />-->
 
 
         <EditText
-            android:id="@+id/etView"
+            android:id="@+id/et_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_10"
             android:visibility="gone" />
 
         <Button
-            android:id="@+id/btnTest1"
+            android:id="@+id/btn_test1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/dp_20"
             android:text="@string/button1"
             android:visibility="visible" />
 
         <Button
-            android:id="@+id/btnTest2"
+            android:id="@+id/btn_test2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -78,5 +79,20 @@
 
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_device_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:textSize="@dimen/sp_50"
+        android:text="@string/app_name"
+        android:padding="@dimen/dp_20"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/dp_100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
