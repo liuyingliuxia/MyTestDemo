@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'org.greenrobot.greendao'
 }
 
 android {
@@ -242,6 +243,12 @@ android {
         }
     }
 
+    greendao {
+        schemaVersion 1  //版本
+        daoPackage 'com.lingong.mytest.gen' // 一般为app包名+生成文件的文件夹名
+        targetGenDir 'src/main/java' //生成文件路径
+    }
+
 }
 
 
@@ -261,4 +268,5 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     api 'com.github.yinhaide:HDSemicircle:0.0.1'
+    implementation 'org.greenrobot:greendao:3.3.0'
 }
