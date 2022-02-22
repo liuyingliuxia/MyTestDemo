@@ -235,6 +235,14 @@ android {
             applicationId "com.lingong.speedtest"
             manifestPlaceholders = [APP_NAME: "@string/app_name"]
         }
+        countryUtil {
+            dimension "default"
+            versionCode = 1000001
+            versionName = "1.0.0.1"
+            applicationId "com.lingong.countryutil"
+            manifestPlaceholders = [APP_NAME: "@string/app_name"]
+        }
+
     }
 
     applicationVariants.all { variant ->
@@ -257,16 +265,17 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.navigation:navigation-fragment:2.3.5'
-    implementation 'androidx.navigation:navigation-ui:2.3.5'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    def lifecycle_version = "2.3.1"
-    speedTestImplementation 'fr.bmartel:jspeedtest:1.32.1'
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    api 'com.github.yinhaide:HDSemicircle:0.0.1'
-    implementation 'org.greenrobot:greendao:3.3.0'
+//    implementation 'androidx.navigation:navigation-fragment:2.3.5'
+//    implementation 'androidx.navigation:navigation-ui:2.3.5'
+//    testImplementation 'junit:junit:4.13.2'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+//    def lifecycle_version = "2.3.1"
+//    speedTestImplementation 'fr.bmartel:jspeedtest:1.32.1'
+//    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+//    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+//    api 'com.github.yinhaide:HDSemicircle:0.0.1'
+//    implementation 'org.greenrobot:greendao:3.3.0'
 }
