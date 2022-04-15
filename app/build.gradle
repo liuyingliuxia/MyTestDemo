@@ -55,25 +55,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
+            resValue "string", "server_type", "release"
         }
         debug {
             resValue "string", "server_type", "debug"
             signingConfig signingConfigs.config
         }
-
-        prod.initWith(release)
-        prod {
-            matchingFallbacks = ['prod', 'release']
-        }
-        acc.initWith(release)
         acc {
-            debuggable true
-            matchingFallbacks = ['acc', 'release']
-        }
-        dev.initWith(release)
-        dev {
-            debuggable true
-            matchingFallbacks = ['dev', 'release']
+            resValue "string", "server_type", "acc"
+            signingConfig signingConfigs.config
         }
 
     }
@@ -240,6 +230,13 @@ android {
             versionCode = 1000001
             versionName = "1.0.0.1"
             applicationId "com.lingong.countryutil"
+            manifestPlaceholders = [APP_NAME: "@string/app_name"]
+        }
+        eshare {
+            dimension "default"
+            versionCode = 1000001
+            versionName = "1.0.0.1"
+            applicationId "com.ecloud.eshare.server"
             manifestPlaceholders = [APP_NAME: "@string/app_name"]
         }
 
