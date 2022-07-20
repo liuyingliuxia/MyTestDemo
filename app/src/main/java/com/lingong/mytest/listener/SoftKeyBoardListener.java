@@ -1,9 +1,8 @@
-package com.lingong.mytest.inter;
+package com.lingong.mytest.listener;
 
 import android.app.Activity;
 import android.graphics.Rect;
 import android.view.View;
-import android.view.ViewTreeObserver;
 
 public class SoftKeyBoardListener {
     //activity的根视图

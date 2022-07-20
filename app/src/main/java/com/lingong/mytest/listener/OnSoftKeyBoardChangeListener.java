@@ -1,4 +1,4 @@
-package com.lingong.mytest.inter;
+package com.lingong.mytest.listener;
 
 public interface OnSoftKeyBoardChangeListener {
     void keyBoardShow();

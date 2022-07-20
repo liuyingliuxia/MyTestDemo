@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Youtube</string>
+    <string name="app_name" translatable="false">MyTestDemo</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -23,4 +23,7 @@
     <string name="button1">Button1</string>
     <string name="button2">Button2</string>
 
+    <string name="description_in_manifest">My Test Accessibility</string>
+    <string name="label_in_manifest">My Test Accessibility</string>
+    <string name="description_in_xml">My Test Accessibility</string>
 </resources>

@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 32
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.lingong.mytest"
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdkVersion 24
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
 
@@ -21,6 +21,7 @@ android {
         jumboMode true
         preDexLibraries = false;
     }
+
     signingConfigs {
         config {
             keyAlias 'zeasn'
@@ -46,39 +47,32 @@ android {
     }
 
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
-        }
-        debug {
-            resValue "string", "server_type", "debug"
-            signingConfig signingConfigs.config
-        }
-
-        prod.initWith(release)
-        prod {
-            matchingFallbacks = ['prod', 'release']
-        }
-        acc.initWith(release)
-        acc {
-            debuggable true
-            matchingFallbacks = ['acc', 'release']
-        }
-        dev.initWith(release)
-        dev {
-            debuggable true
-            matchingFallbacks = ['dev', 'release']
-        }
-
-    }
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
+//
+//        debug {
+//            debuggable = true
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
+//
+//        acc {
+//            debuggable = true
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
+//
+//    }
 
 
     flavorDimensions "default"
     productFlavors {
 
-       speedTest {
+        demo {
+            signingConfigs.config
             dimension "default"
             versionCode = 1000000
             versionName = "1.0.0"
@@ -86,13 +80,6 @@ android {
             manifestPlaceholders = [APP_NAME: "@string/app_name"]
         }
 
-        webSpeedTest {
-            dimension "default"
-            versionCode = 1000000
-            versionName = "1.0.0"
-            applicationId "com.lingong.demo"
-            manifestPlaceholders = [APP_NAME: "@string/app_name"]
-        }
     }
 
     applicationVariants.all { variant ->
@@ -116,7 +103,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     def lifecycle_version = "2.3.1"
-    speedTestImplementation 'fr.bmartel:jspeedtest:1.32.1'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 }
