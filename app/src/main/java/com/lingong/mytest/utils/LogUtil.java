@@ -9,7 +9,7 @@ import android.util.Log;
  */
 public class LogUtil {
 
-    public static String TAG = "lin_gong:";
+    public static String TAG = "lin_gong: ### ";
     public static boolean LOG_DEBUG = true;
 
     public static void d(String msg) {

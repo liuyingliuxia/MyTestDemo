@@ -76,7 +76,7 @@ android {
             dimension "default"
             versionCode = 1000000
             versionName = "1.0.0"
-            applicationId "com.lingong.speedtest"
+            applicationId "com.lingong.test.all"
             manifestPlaceholders = [APP_NAME: "@string/app_name"]
         }
 
