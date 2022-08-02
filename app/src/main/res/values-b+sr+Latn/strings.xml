@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="source_overlay_bg_path">system/menu_config_xml/launcher_bg.png</string>
+    
+    <string name="app_name">Pametni TV</string>
+    <string name="tab_media">Media</string>
+    <string name="tab_moive">Film</string>
+    <string name="tab_setting">Postavku</string>
+    <string name="tab_weather">Vreme</string>
+    <string name="tab_search">Pretrage</string>
+    <string name="tab_home">Početni ekran</string>
+    <string name="tab_video">Video zapis</string>
+    <string name="tab_apps">Aplikacija</string>
+    <string name="tab_sport">Sport</string>
+    <string name="tab_music">muzika</string>
+    <string name="tab_kids">Decu</string>
+    <string name="tab_source">Izvor</string>
+    <string name="my_app_title">Lista aplikacija</string>
+    <string name="my_apps">Moje aplikacije</string>
+    <string name="app_store">Prodavnica aplikacija</string>
+    <string name="uninstall_msg">Želite li zaista da deinstalirate %1$s Sada ?</string>
+    <string name="recently">Nedavno</string>
+    <string name="clean_recently_data">Želite li zaista da obrišite svu istoriju?</string>
+    <string name="nothing">Ovde nema ničega</string>
+    <string name="network_setting">Mrežna postavka</string>
+    <string name="network_connection_failed">Mrežna veza nije uspela, proverite mrežne postavke.</string>
+    <string name="retry">Ponovi</string>
+    <string name="upgrade">Nadogradnju</string>
+    <string name="new_version">Nova verzija</string>
+    <string name="later">Kasnije</string>
+    <string name="install">Instalirate</string>
+    <string name="delete">Izbrišete</string>
+    <string name="buffering">Bafering</string>
+    <string name="play">Igra</string>
+    <string name="stop">Prestani</string>
+    <string name="detail_time">Vreme:</string>
+    <string name="detail_views">Prikazi:</string>
+    <string name="detail_type">Tip:</string>
+    <string name="clean_all">Očisti sve</string>
+    <string name="open">Otvorite</string>
+    <string name="install_app">Instaliraj aplikaciju</string>
+    <string name="search">Pretrage</string>
+    <string name="search_edit_hint_text">Šta tražiš?</string>
+    <string name="search_recommend_title">Preporuиujem</string>
+    <string name="search_empty_tip">Još uvek nije pronađen srodni sadržaj \"%1$s\"</string>
+    <string name="pause">Pauziraj</string>
+    <string name="mac_auth">MAC autorizacija</string>
+    <string name="media_center">Media Center</string>
+    <string name="enter_media_center">Želite li da uđete u Media Center?</string>
+    <string name="enter">ući</string>
+    <string name="sorting_data_load_fail">Učitavanje podataka nije uspelo, pokušajte ponovo kasnije</string>
+    <string name="no_network_content">Proverite mrežu ili pokušajte ponovo kasnije.</string>
+    <string name="no_network_go_to">idi na mrežnu postavku</string>
+    <string name="save_recently_records">Sačuvaj zapise</string>
+    <string name="no_browsing_history">Nema istorije pregledanja</string>
+    <string name="recommend_title">Preporuиujem</string>
+
+    <string name="cancel">Otkaži</string>
+    <string name="ok">U redu</string>
+    <string name="loading">Učitavanje</string>
+    <string name="authorization_failed">Autorizacija nije uspela</string>
+    <string name="network_disconnected">Veza sa mrežom je prekinuta</string>
+    <string name="network_connected">Mreža je povezana</string>
+
+    <string name="time_out">Vreme je završeno, proverite mrežu ili pokušajte ponovo</string>
+    <string name="no_network">Nema mreže, proverite mrežne postavke.</string>
+
+    <string name="install_failed">Instalacija nije uspela</string>
+    <string name="silent_install_failed">Tiha instalacija nije uspela, instalirajte je ručno</string>
+    <string name="waiting_install">instalacija čekanja</string>
+    <string name="installed">Instaliran</string>
+    <string name="upgrade_to_version">Nadogradite na verziju %1$s</string>
+    <string name="store_not_found">Nije moguće pronaći prodavnicu</string>
+    <string name="cancel_download_launcher_msg">Preuzimate ažuriranu verziju, želite li zaista da prekinete nadogradnju?</string>
+    <string name="upgrade_version">Postojeća verzija %1$s može biti ispravka </string>
+
+    <string name="request_error">Greška u zahtevu</string>
+    <string name="no_intranet">Greška interne mreže, proverite postavke mreže.</string>
+    <string name="authority_failed">Vaš ID hardvera %1$s nije ovlašćen. Prvo ovlastite uređaj.</string>
+    <string name="press">Pritisnite taster</string>
+    <string name="menu">jelovnik</string>
+    <string name="exit">Izlaz</string>
+    <string name="menu_1">\'jelovnik\'</string>
+    <string name="exit_1">\'Izlaz\'</string>
+    <string name="to_edit">ključ za uređivanje</string>
+    <string name="to_uninstall">da biste deinstalirali</string>
+    <string name="to_exit">ključ za uređivanje režima</string>
+
+    <string name="application_no_installed">Aplikacija sa imenom paketa \' %1$s \' nije instalirana, molimo vas da je prvo preuzmete.</string>
+    <string name="not_find_resource">Resurs nije mogao biti pronađen</string>
+    <string name="unmounted">USB uređaj uklonjen!</string>
+    <string name="usb_insert">USB uređaj je ubačen!</string>
+
+    <string name="dismiss">Otpusti</string>
+
+    <string name="not_find_apps">Ova aplikacija nije pronađena</string>
+    <string name="tab_search_tip">Pretraži video,muzika,">amp; Aplikacija</string>
+    <string name="quit">Prestani</string>
+    <string name="download">Preuzimanje</string>
+    <string name="no_name">BEZ IMENA</string>
+    <string name="video_source">Izvor</string>
+    <string name="video_duration">Trajanje</string>
+    <string name="video_year">Godine</string>
+    <string name="video_views">Prikazi</string>
+    <string name="video_playback">Reprodukciju</string>
+    <string name="video_singer">Pevaи</string>
+    <string name="music_listened">Sluљao:</string>
+    <string name="dialog_system_setting">Postavka sistema</string>
+    <string name="dialog_tou">TOU</string>
+	
+	<string name="tou_options">Opcije</string>
+    <string name="tou_ad_options">Opcije oglasa</string>
+    <string name="tou_terms_of_use">Uslovi korišćenja</string>
+    <string name="tou_privacy_setting">Postavka privatnosti</string>
+    <string name="tou_title">Tou</string>
+    <string name="tou_network_bad">Nema mrežne veze, proverite mrežu.</string>
+	
+    <string name="skip">Preskoči</string>
+    <string name="ad_tou">Opcije oglasa</string>
+    <string name="tou_content">Prikazivanje oglasa za trenutnu oblast na početnom ekranu</string>
+    <string name="ad">AD</string>
+    <string name="ad_tou_1">AD TOU</string>
+    <string name="ad_tracking">Ograniči praćenje oglasa</string>
+    <string name="ad_identifier">Identifikator za oglašavanje</string>
+    <string name="reset">Poništi</string>
+</resources>
+

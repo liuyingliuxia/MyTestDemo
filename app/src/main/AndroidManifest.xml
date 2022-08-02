@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.zeasn.whale.open.launcher.technical.overlay">
+    package="com.zeasn.toptech.titanos2.launcher.overlay">
 
     <application android:hasCode="false" />
 
     <overlay
         android:isStatic="true"
-        android:priority="4"
-        android:targetPackage="com.zeasn.whale.open.launcher.technical" />
+        android:priority="9"
+        android:targetPackage="com.zeasn.toptech.titanos2.launcher" />
 </manifest>
