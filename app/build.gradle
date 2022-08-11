@@ -30,6 +30,10 @@ android {
         }
     }
 
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 
     buildTypes {
         release {
@@ -60,8 +64,8 @@ android {
     productFlavors {
         overlayDemo {
             dimension "default"
-            versionCode = 1000005
-            versionName = "1.0.0.5"
+            versionCode = 1000006
+            versionName = "1.0.0.6"
         }
 
 
