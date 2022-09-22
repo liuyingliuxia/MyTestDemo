@@ -176,7 +176,7 @@ android {
             dimension "default"
             versionCode = 1000000
             versionName = "1.0.0"
-            applicationId "kr.co.afreecatv.atv"
+            applicationId "com.accuweather.android"
             manifestPlaceholders = [APP_NAME: "afreecatv"]
         }
 
@@ -184,7 +184,7 @@ android {
             dimension "default"
             versionCode = 1000000
             versionName = "1.0.0"
-            applicationId "net.cj.cjhv.gs.tving"
+            applicationId "com.kmplayer"
             manifestPlaceholders = [APP_NAME: "tving"]
         }
         localLanguageTest {

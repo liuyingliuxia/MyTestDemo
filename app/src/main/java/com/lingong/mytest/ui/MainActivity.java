@@ -1,6 +1,9 @@
 package com.lingong.mytest.ui;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -12,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.lingong.mytest.databinding.ActivityMainBinding;
 import com.lingong.mytest.inter.OnSoftKeyBoardChangeListener;
 import com.lingong.mytest.inter.SoftKeyBoardListener;
+import com.lingong.mytest.utils.DeepLinkUtil;
 import com.lingong.mytest.utils.DeviceUtil;
 import com.lingong.mytest.utils.LogUtil;
 
@@ -90,8 +94,44 @@ public class MainActivity extends AppCompatActivity {
         });
 
 //        binding.btnTest2.setText("JMGO");
+//        adb shell am start -n com.zeasn.whale.open.launcher.technical/
+//        com.zeasn.whale.open.launcher.technical.ui.NewAppsDetailActivity --es package_name  xxxxxx(改成打开应用的包名)
+        String dpLink = "{\n" +
+                "  \"pkg\": \"com.ixigua.android.tv.wasu\",\n" +
+                "  \"className\": \"com.ixigua.android.business.tvbase.base.app.schema.AdsAppActivity\",\n" +
+                "  \"data\": {\n" +
+                "    \"uri\": \"snssdk1840://detail/enter_detail\"\n" +
+                "  },\n" +
+                "  \"flag\": \"0\",\n" +
+                "  \"action\": \"android.intent.action.VIEW\",\n" +
+                "  \"extra\": [\n" +
+                "    {\n" +
+                "      \"key\": \"album_id\",\n" +
+                "      \"value\": \"7138316314279576078\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"key\": \"episode_id\",\n" +
+                "      \"value\": \"0\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"key\": \"enter_from\",\n" +
+                "      \"value\": \"openapk_phi\"\n" +
+                "    }\n" +
+                "  ]\n" +
+                "}";
         binding.btnTest2.setOnClickListener(v -> {
-            binding.btnTest2.setText(DeviceUtil.getEth0Mac("wlan0"));
+            DeepLinkUtil.dispatchDeeplink(v.getContext(), dpLink);
+//            startApp(this);
+
+//            startActivityByPkgClass(v.getContext(), "com.zeasn.launcher.projector",
+//                    "com.zeasn.launcher.ui.MainActivity");
+
+//            Intent intent = new Intent();
+//            intent.setClassName("com.zeasn.launcher.projector",  "com.zeasn.launcher.ui.MainActivity");
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(intent);
+
+//            binding.btnTest2.setText(DeviceUtil.getEth0Mac("wlan0"));
 //            Intent intent = new Intent();
 //            intent.setClassName("com.jmgo.luna", "com.jmgo.luna.ui.JmgoFunActivity");
 //            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -105,6 +145,24 @@ public class MainActivity extends AppCompatActivity {
 //        binding.ringPb.setProgress(0);
 //        startTesting();
 //        binding.ringPb.setRingColor(getResources().getColor(R.color.blue0D81F3));
+    }
+
+
+    //    包名:com.ixigua.android.tv.wasu
+//    类名：com.ixigua.android.business.tvbase.base.app.schema.AdsAppActivity
+//    key：open_url
+//    value：snssdk1840://detail/enter_detail?album_id=7137535517692068389&episode_id=0&enter_from=openapk
+    void startApp(Context context) {
+        try {
+            Intent setting = new Intent();
+            setting.setClassName("com.ixigua.android.tv.wasu",
+                    "com.ixigua.android.business.tvbase.base.app.schema.AdsAppActivity");
+            setting.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            setting.putExtra("open_url", "snssdk1840://detail/enter_detail?album_id=7137535517692068389&episode_id=0&enter_from=openapk");
+            context.startActivity(setting);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -151,6 +209,27 @@ public class MainActivity extends AppCompatActivity {
             runtime.exec(keyCommand);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * 根据包名类名 打开一个第三方应用里的页面
+     * 需要加uid
+     *
+     * @param pkg
+     * @param className
+     */
+    public static void startActivityByPkgClass(Context context, String pkg, String className) {
+        try {
+            Intent intent = new Intent();
+            intent.setClassName(pkg, className);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException exception) {
+//            exception.printStackTrace();
+            LogUtil.d("startActivityByPkgClass 指定路径不存在~~~~~" + exception.getMessage());
+        } catch (Exception e) {
+            LogUtil.d("startActivityByPkgClass e = " + e.getMessage());
         }
     }
 
