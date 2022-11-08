@@ -96,29 +96,7 @@ public class MainActivity extends AppCompatActivity {
 //        binding.btnTest2.setText("JMGO");
 //        adb shell am start -n com.zeasn.whale.open.launcher.technical/
 //        com.zeasn.whale.open.launcher.technical.ui.NewAppsDetailActivity --es package_name  xxxxxx(改成打开应用的包名)
-        String dpLink = "{\n" +
-                "  \"pkg\": \"com.ixigua.android.tv.wasu\",\n" +
-                "  \"className\": \"com.ixigua.android.business.tvbase.base.app.schema.AdsAppActivity\",\n" +
-                "  \"data\": {\n" +
-                "    \"uri\": \"snssdk1840://detail/enter_detail\"\n" +
-                "  },\n" +
-                "  \"flag\": \"0\",\n" +
-                "  \"action\": \"android.intent.action.VIEW\",\n" +
-                "  \"extra\": [\n" +
-                "    {\n" +
-                "      \"key\": \"album_id\",\n" +
-                "      \"value\": \"7138316314279576078\"\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"key\": \"episode_id\",\n" +
-                "      \"value\": \"0\"\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"key\": \"enter_from\",\n" +
-                "      \"value\": \"openapk_phi\"\n" +
-                "    }\n" +
-                "  ]\n" +
-                "}";
+        String dpLink = "{   \"pkg\": \"com.ixigua.android.tv.wasu\",   \"className\": \"com.ixigua.android.business.tvbase.base.app.schema.AdsAppActivity\",   \"data\": {     \"uri\": \"snssdk1840://secondarypage\"   },   \"flag\": \"0\",   \"action\": \"android.intent.action.VIEW\",   \"extra\": [     {       \"key\": \"page_id\",       \"value\": \"7054819661304578573\"     },     {       \"key\": \"episode_id\",       \"value\": \"0\"     },     {       \"key\": \"enter_from\",       \"value\": \"openapk_phi\"     }   ] }";
         binding.btnTest2.setOnClickListener(v -> {
             DeepLinkUtil.dispatchDeeplink(v.getContext(), dpLink);
 //            startApp(this);
