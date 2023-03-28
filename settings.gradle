@@ -1,3 +1,4 @@
 rootProject.name = "MyTest"
 include ':app'
 include ':chatGptCode'
+include ':tetris_by_gpt'
